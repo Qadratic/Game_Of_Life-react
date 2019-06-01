@@ -1,19 +1,14 @@
-import React,{Component} from 'react';
+import React from 'react';
+import './block-css.css';
 
-export default class Block extends Component{
-	// constructor(props){
-	// 	super(props);
-
-	// }
-	style={
-		width:this.props.size,
-		height:this.props.size,
-		border:0,
-		background:this.props.color,
+export default function Block(props) {
+	var block_style = {
+		height: props.size,
+		width: props.size,
+		background: props.color,
 	};
-	render(){
-		return (
-			<button onClick={this.props.onclick} style={this.style}></button>
-		);
-	}
+	console.log(props.color);
+	return (
+		<div onClick={()=>{props.clickHandler();}} style={block_style} className='block'></div>
+	);
 }

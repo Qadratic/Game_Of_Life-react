@@ -22,26 +22,32 @@ export default class Board extends Component {
 		this.clickHandler = this.clickHandler.bind(this);
 	}
 
-	clickHandler() {
+	clickHandler(i,j) {
+		console.log(i,j);
 		let newarr = this.state.arr;
 		//console.log(this.state.arr);
-		newarr[5][5] = 1;
+		newarr[i][j] = 1;
 		//console.log(newarr);
 		this.setState({
 			arr: newarr
 		});
 	}
+
+	renderBlock(color,i,j){
+		j%=40;
+		//console.log(i,j);
+		return (<Block clickHandler={()=>{this.clickHandler(i,j)}} size={20} color={color} />);
+	}
 	
 	render() {
 
-		var count1=0;
-		console.log(this.state.arr[5][5] === 1 ? 'yellow' : 'grey');
+		var count1=0,count2=0;
 		var column = this.state.arr.map(array =>
 			<tr key={count1++}>{array.map(value =>
-				<td key={count1++}><Block clickHandler={this.clickHandler} size={20} color={value === 1 ? 'yellow' : 'grey'} /></td>
+			<td key={count2++}>{this.renderBlock(value === 1 ? 'yellow' : 'grey',count1-1,count2-1)}</td>
 			)}</tr>
 		);
-		console.log(count1);
+		//console.log(count1,count2);
 		return (
 			<table>
 				<tbody>

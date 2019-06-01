@@ -23,10 +23,10 @@ export default class Board extends Component {
 	}
 
 	clickHandler(i,j) {
-		console.log(i,j);
+		//console.log(i,j);
 		let newarr = this.state.arr;
 		//console.log(this.state.arr);
-		newarr[i][j] = 1;
+		newarr[i][j] = newarr[i][j]===1?0:1;
 		//console.log(newarr);
 		this.setState({
 			arr: newarr

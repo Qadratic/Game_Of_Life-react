@@ -9,6 +9,6 @@ export default function Block(props) {
 	};
 	//console.log(props.color);
 	return (
-		<div onClick={()=>{props.clickHandler();}} style={block_style} className='block'></div>
+		<div onMouseDown={props.clickHandler} style={block_style} className='block'></div>
 	);
 }

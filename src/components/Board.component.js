@@ -24,7 +24,7 @@ export default class Board extends Component {
 		newarr[i][j] = newarr[i][j] === 1 ? 0 : 1;
 		//console.log(newarr);
 		this.setState({
-			arr: newarr
+			arr: newarr,
 		});
 	}
 
@@ -108,6 +108,7 @@ export default class Board extends Component {
 						{column}
 					</tbody>
 				</table>
+				<br/>
 				<button type='button' onMouseDown={this.renderNextPattern}>NEXT</button>
 				<button type='button' onMouseDown={this.autoPlayPattern}>START</button>
 				<button type='button' onMouseDown={this.stopPlayPattern}>STOP</button>

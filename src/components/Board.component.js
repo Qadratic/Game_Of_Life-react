@@ -15,6 +15,7 @@ export default class Board extends Component {
 		this.renderNextPattern = this.renderNextPattern.bind(this);
 		this.autoPlayPattern = this.autoPlayPattern.bind(this);
 		this.stopPlayPattern = this.stopPlayPattern.bind(this);
+		this.clearBoard=this.clearBoard.bind(this);
 	}
 
 	clickHandler(i, j) {
@@ -86,10 +87,18 @@ export default class Board extends Component {
 	autoPlayPattern(){
 		this.interval=setInterval(()=>{
 			this.renderNextPattern();
-		},200);
+		},100);
 	}
 	stopPlayPattern(){
 		clearInterval(this.interval);
+	}
+
+	clearBoard(){
+		this.stopPlayPattern();
+		let newarr = Array(this.props.rows).fill(0).map(x => Array(this.props.columns).fill(0));
+		this.setState({
+			arr:newarr
+		});
 	}
 
 	render() {
@@ -112,6 +121,7 @@ export default class Board extends Component {
 				<button type='button' onMouseDown={this.renderNextPattern}>NEXT</button>
 				<button type='button' onMouseDown={this.autoPlayPattern}>START</button>
 				<button type='button' onMouseDown={this.stopPlayPattern}>STOP</button>
+				<button type='button' onMouseDown={this.clearBoard}>CLEAR</button>
 			</Fragment>
 		);
 	}

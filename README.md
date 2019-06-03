@@ -28,6 +28,8 @@ For a space that is 'empty' or 'unpopulated'
 
 - Click STOP to stop the animation.
 
+- Click CLEAR to clear the board.
+
 ## Installation
 
 Use the package manager npm to install Game Of Life.
